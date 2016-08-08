@@ -54,7 +54,7 @@ func main() {
 	type Invoices struct {
 		Invoices Invoice `xml:"Invoice"`
 	}
-	v := &Invoices{Invoice{*Type, *ContactID, []LineItem{{*Description, *LineAmount}}}}
+	v := Invoices{Invoice{*Type, *ContactID, []LineItem{{*Description, *LineAmount}}}}
 	output, _ := xml.Marshal(v)
 
 	pemData, _ := ioutil.ReadFile(*PrivateKeyPath)
